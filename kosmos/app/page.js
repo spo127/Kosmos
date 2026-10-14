@@ -3,84 +3,96 @@
 import { useState } from "react";
 
 export default function Home() {
-  const spaceFacts = [
-    "🌍 Earth is the only known planet that supports life.",
-    "☀️ The Sun contains 99.8% of the Solar System's mass.",
-    "🌕 The Moon is moving away from Earth by about 3.8 cm every year.",
-    "🪐 Saturn could float in water because it is less dense than water.",
-    "🌌 One day on Venus is longer than one year on Venus.",
-    "⭐ There are more stars in the universe than grains of sand on Earth.",
-    "🚀 The International Space Station travels at about 28,000 km/h.",
-    "🛰️ Light from the Sun takes about 8 minutes to reach Earth."
+  const facts = [
+    "🌍 Earth is the only known planet to support life.",
+    "🚀 Astronauts grow slightly taller in space.",
+    "🪐 Saturn has more than 140 moons.",
+    "🌕 The Moon has moonquakes.",
+    "☀️ The Sun contains 99.8% of our Solar System's mass.",
+    "🌌 There are billions of galaxies in the universe."
   ];
 
-  const [fact, setFact] = useState(spaceFacts[0]);
+  const [fact, setFact] = useState(facts[0]);
 
-  const showFact = () => {
-    const randomIndex = Math.floor(Math.random() * spaceFacts.length);
-    setFact(spaceFacts[randomIndex]);
-  };
+  function newFact() {
+    const random = Math.floor(Math.random() * facts.length);
+    setFact(facts[random]);
+  }
 
   return (
     <div
       style={{
-        minHeight: "100vh",
-        background: "linear-gradient(to bottom, #000428, #004e92)",
-        color: "white",
+        height: "100vh",
+        background:
+          "linear-gradient(135deg,#020024,#090979,#000000)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        fontFamily: "Arial, sans-serif",
+        fontFamily: "Arial",
+        padding: "20px",
       }}
     >
       <div
         style={{
-          width: "500px",
+          width: "550px",
+          backgroundColor: "rgba(255,255,255,0.12)",
+          backdropFilter: "blur(15px)",
+          borderRadius: "20px",
+          padding: "35px",
           textAlign: "center",
-          padding: "30px",
-          borderRadius: "15px",
-          backgroundColor: "rgba(255,255,255,0.1)",
-          boxShadow: "0 0 20px rgba(255,255,255,0.2)",
+          color: "white",
+          boxShadow: "0 0 25px rgba(255,255,255,0.3)",
         }}
       >
-        <h1 style={{ fontSize: "40px" }}>🚀 Space Explorer</h1>
+        <div style={{ fontSize: "90px" }}>🪐</div>
 
-        <p style={{ fontSize: "18px", marginTop: "20px" }}>
-          Click the button to discover a random space fact!
+        <h1
+          style={{
+            fontSize: "42px",
+            color: "#7dd3fc",
+            marginBottom: "10px",
+          }}
+        >
+          Space Explorer
+        </h1>
+
+        <p style={{ color: "#ddd", fontSize: "18px" }}>
+          Discover amazing facts about our universe.
         </p>
 
         <div
           style={{
-            margin: "25px 0",
-            padding: "20px",
-            backgroundColor: "#1a1a40",
-            borderRadius: "10px",
-            minHeight: "100px",
+            backgroundColor: "rgba(255,255,255,0.1)",
+            padding: "25px",
+            borderRadius: "15px",
+            marginTop: "30px",
+            marginBottom: "30px",
+            minHeight: "120px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "18px",
+            fontSize: "22px",
           }}
         >
           {fact}
         </div>
 
         <button
-          onClick={showFact}
+          onClick={newFact}
           style={{
-            padding: "12px 25px",
-            fontSize: "18px",
-            border: "none",
-            borderRadius: "8px",
-            backgroundColor: "#00c3ff",
+            backgroundColor: "#38bdf8",
             color: "white",
+            border: "none",
+            padding: "15px 35px",
+            borderRadius: "40px",
+            fontSize: "18px",
             cursor: "pointer",
+            fontWeight: "bold",
           }}
         >
-          Show Random Fact
+          🚀 Discover More
         </button>
       </div>
     </div>
   );
 }
-        
